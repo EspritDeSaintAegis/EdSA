@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+            /* Статические сердечки на заднем фоне (через SVG-паттерн) */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><text x="30" y="50" font-size="24" opacity="0.25">❤️</text></svg>');
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 500px;
+            /* Чтобы контейнер не прыгал при смене контента */
+            min-height: 250px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Стили для большой кнопки */
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+            font-family: inherit;
+            line-height: 1.3;
+        }
+
+        button:hover {
+            background-color: #ff3333;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 77, 77, 0.5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Стили для текста поздравления */
+        #greeting {
+            display: none;
+            font-size: 24px;
+            color: #333;
+            line-height: 1.5;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 28px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button id="actionBtn">Поздравление от Димки Дроздова</button>
+        
+        <div id="greeting">
+            С праздником, братан! Желаю богатырского здоровья, фарту по жизни, безграничного бабла, ну и самое главное — <br>
+            <span class="highlight">шоб хуй стоял и бабы были! 🍻💪😎</span>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('actionBtn');
+        const greeting = document.getElementById('greeting');
+
+        btn.addEventListener('click', () => {
+            // Прячем кнопку
+            btn.style.display = 'none';
+            // Показываем поздравление
+            greeting.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
